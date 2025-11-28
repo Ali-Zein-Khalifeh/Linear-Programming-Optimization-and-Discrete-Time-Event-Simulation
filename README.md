@@ -85,7 +85,7 @@ Detailed results are available in **Optimization and Simulation Report.pdf**.
 
 --------------------------------------------------------------------------------
 
-## 📁 Repository Structure
+### 📁 Repository Structure
 
 Linear_Programming_Optimization_Project/
 |
