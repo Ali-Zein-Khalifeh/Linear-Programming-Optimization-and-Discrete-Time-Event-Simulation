@@ -73,8 +73,10 @@ All parameters and assumptions come from the detailed project report.
 ------------------------------------------------------------
 Linear_Programming_Optimization_Project/
 │
-├── Optimization and Simulation Report.pdf              # Final report│
-├── emergency_scenario_simulation.slx                   # Emergency model
+├── Optimization and Simulation Report.pdf
+├── Optimization and Simulation Report.docx
+│
+├── emergency_scenario_simulation.slx
 ├── Emergency_scenario_avg_flow_time_calculation.m
 │
 ├── hospital_scenario_before_optimization_simulation.slx
@@ -83,10 +85,9 @@ Linear_Programming_Optimization_Project/
 ├── hospital_scenario_after_optimization_simulation.slx
 ├── hospital_scenario_after_optimization_simulation.m
 │
-├── hospital_scenario_optimization_problem.m            # LP optimization code
+├── hospital_scenario_optimization_problem.m
 │
-└── README.md                                           # This documentation
-
+└── README.md
 ------------------------------------------------------------
 🛠 TOOLS USED
 ------------------------------------------------------------
