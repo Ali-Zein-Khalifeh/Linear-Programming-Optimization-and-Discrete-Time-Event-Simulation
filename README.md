@@ -5,7 +5,7 @@ The goal is to identify bottlenecks, reduce waiting times, and determine the **o
 
 ---
 
-## 🎯 Project Objectives
+## Project Objectives
 
 - Model a real multi-stage service system using queueing theory  
 - Use **Linear Programming (LP)** to optimally allocate servers/staff  
@@ -16,7 +16,7 @@ The goal is to identify bottlenecks, reduce waiting times, and determine the **o
 
 ---
 
-## 🏥 System Description
+## System Description
 
 The modeled process includes multiple consecutive stages:
 
@@ -36,9 +36,9 @@ All parameters and assumptions are detailed in the project report.
 
 ---
 
-## 📐 Methods Used
+## Methods Used
 
-### 1️⃣ Linear Programming (Optimization)
+### Linear Programming (Optimization)
 
 - Determines the **minimum-cost** configuration  
 - Constraints include:
@@ -47,14 +47,14 @@ All parameters and assumptions are detailed in the project report.
   - Budget and staffing limits  
 - Outputs the **optimal number of servers** per stage  
 
-### 2️⃣ Discrete-Time Event Simulation
+### Discrete-Time Event Simulation
 
 - Monte-Carlo simulation validates analytical results  
 - Generates random arrivals and service times  
 - Tracks system evolution step-by-step  
 - Measures queue buildup and delay distributions  
 
-### 3️⃣ Queueing Theory (M/M/s)
+### Queueing Theory (M/M/s)
 
 - Computes:
   - Utilization \( \rho \)  
@@ -65,7 +65,7 @@ All parameters and assumptions are detailed in the project report.
 
 ---
 
-## 📊 Results Summary
+## Results Summary
 
 - The operating room (OR) capacity is the main bottleneck in the base system.  
 - Increasing OR servers significantly reduces delays.  
