@@ -1,105 +1,80 @@
 # Linear Programming Optimization & Discrete-Time Event Simulation
 
-This project applies **linear programming**, **queueing theory**, and **discrete-time event simulation** to analyze and optimize a multi-stage service system (hospital workflow).  
-The goal is to study system congestion, identify bottlenecks, and compute the **optimal resource allocation** that minimizes waiting time and improves overall efficiency.
+This project applies **linear programming**, **queueing theory**, and **discrete-time event simulation** to analyze and optimize a multi-stage service system (such as a hospital workflow).  
+The goal is to identify bottlenecks, reduce waiting times, and determine the **optimal resource configuration** that minimizes cost while meeting performance requirements.
 
----
+------------------------------------------------------------
+🎯 PROJECT OBJECTIVES
+------------------------------------------------------------
+- Model a real multi-stage service system using queueing theory  
+- Use **Linear Programming (LP)** to optimally allocate servers/staff  
+- Run **Monte-Carlo discrete-time simulations** to validate LP results  
+- Estimate: waiting times, queue lengths, utilization, throughput  
+- Identify bottlenecks before/after optimization  
+- Compare analytical M/M/s predictions to simulation results  
 
-## 🎯 **Project Objectives**
+------------------------------------------------------------
+🏥 SYSTEM DESCRIPTION
+------------------------------------------------------------
+The modeled process includes multiple consecutive stages:
+1. Emergency / Registration
+2. Pre-operative preparation
+3. Surgery
+4. Recovery
+5. Discharge check
 
-- Model a real multi-stage service process using queueing theory  
-- Use **Linear Programming (LP)** to optimally assign resources  
-- Run **Monte-Carlo discrete-time simulations** to validate analytical results  
-- Estimate:
-  - Waiting times  
-  - Queue lengths  
-  - Resource utilization  
-  - System throughput  
-- Identify bottlenecks in the service pipeline  
-- Compare **before vs. after optimization** performance  
-
----
-
-## 🏥 **System Description**
-
-The modeled process consists of multiple consecutive hospital stages:
-
-1. **Emergency / Registration**
-2. **Pre-operative preparation**
-3. **Surgery**
-4. **Recovery**
-5. **Final discharge check**
-
-Each stage is treated as an **M/M/s queue**, defined by:
-
+Each stage is modeled as an **M/M/s queue**:
 - Poisson arrivals  
 - Exponential service times  
-- *s* parallel servers (doctors, nurses, ORs)  
+- *s* parallel servers  
 
-All parameters and formulas follow the report included in this repository.
+All parameters and assumptions come from the detailed project report.
 
----
+------------------------------------------------------------
+📐 METHODS USED
+------------------------------------------------------------
 
-## 📐 **Methods Used**
+1️⃣ LINEAR PROGRAMMING (Optimization)
+- Determines the **minimum-cost** configuration  
+- Constraints include:  
+  - Max waiting-time limits  
+  - Required throughput  
+  - Budget and staffing limits  
+- Outputs: **optimal number of servers** per stage  
 
-### **1️⃣ Linear Programming (Optimization)**
-Used to determine the best number of staff/resources under constraints:
+2️⃣ DISCRETE-TIME EVENT SIMULATION
+- Monte-Carlo simulation validates analytical results  
+- Generates random arrivals and service times  
+- Tracks system evolution step-by-step  
+- Measures real queue buildup and delay distributions  
 
-- Max waiting time thresholds  
-- Budget/operational limits  
-- Required throughput levels  
+3️⃣ QUEUEING THEORY (M/M/s)
+- Computes:  
+  - Utilization (ρ)  
+  - Expected queue length E[Nq]  
+  - Expected waiting time E[W]  
+  - Throughput  
+  - Bottleneck detection  
 
-LP identifies the **cheapest configuration** that still satisfies system performance requirements.
+------------------------------------------------------------
+📊 RESULTS SUMMARY
+------------------------------------------------------------
+- OR capacity is the main bottleneck in the base system  
+- Increasing OR servers significantly reduces delays  
+- After OR optimization, **Recovery** becomes the new bottleneck  
+- The optimized configuration:  
+  - Meets performance constraints  
+  - Minimizes total cost  
+  - Balances workload across stages  
+- Simulation results match theoretical predictions very closely  
 
----
-
-### **2️⃣ Discrete-Time Event Simulation**
-A Monte-Carlo simulation validates the analytical results by:
-
-- Generating thousands of random arrivals  
-- Assigning them to servers  
-- Measuring real queueing behavior  
-- Comparing simulation curves to theoretical predictions  
-
----
-
-### **3️⃣ Queueing Theory**
-Classical M/M/s formulas compute:
-
-- Utilization  
-- Expected number in queue  
-- Expected waiting time  
-- Service throughput  
-- Stage-by-stage bottlenecks  
-
-These results guide the optimization.
-
----
-
-## 📊 **Results Summary**
-
-From the analysis and simulations:
-
-- Adding **more OR capacity** significantly reduces global waiting time  
-- After OR expansion, **Recovery** becomes the new bottleneck  
-- The optimized system:
-  - Meets all waiting-time constraints  
-  - Has balanced utilization across stages  
-  - Matches simulation results closely  
-
-Both simulation and theory support the same optimal configuration.
-
----
-
-## 📁 **Repository Structure**
-
-```text
+------------------------------------------------------------
+📁 REPOSITORY STRUCTURE
+------------------------------------------------------------
 Linear_Programming_Optimization_Project/
 │
-├── Optimization and Simulation Report.pdf              # Full report (final)
-├── Optimization and Simulation Report.docx             # Editable version
-│
-├── emergency_scenario_simulation.slx                   # Emergency scenario model
+├── Optimization and Simulation Report.pdf              # Final report│
+├── emergency_scenario_simulation.slx                   # Emergency model
 ├── Emergency_scenario_avg_flow_time_calculation.m
 │
 ├── hospital_scenario_before_optimization_simulation.slx
@@ -108,6 +83,22 @@ Linear_Programming_Optimization_Project/
 ├── hospital_scenario_after_optimization_simulation.slx
 ├── hospital_scenario_after_optimization_simulation.m
 │
-├── hospital_scenario_optimization_problem.m            # Linear Programming model
+├── hospital_scenario_optimization_problem.m            # LP optimization code
 │
-└── README.md                                           # Documentation
+└── README.md                                           # This documentation
+
+------------------------------------------------------------
+🛠 TOOLS USED
+------------------------------------------------------------
+- MATLAB  
+- Linear Programming solver (linprog)  
+- Monte-Carlo Simulation  
+- Queueing Theory (M/M/s models)  
+- Discrete-Time Simulation  
+
+------------------------------------------------------------
+👤 AUTHOR
+------------------------------------------------------------
+Ali Zein Khalifeh  
+Politecnico di Torino  
+Optimization & Simulation Project
