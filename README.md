@@ -1,98 +1,126 @@
-**Linear Programming Optimization & Discrete-Time Event Simulation**
+# Linear Programming Optimization & Discrete-Time Event Simulation
 
-This project applies linear programming, queueing theory, and discrete-time event simulation to analyze and optimize a multi-stage service system.
-Using MATLAB, the model simulates patient/job flows across several stations, evaluates system performance, and determines optimal resource allocation to minimize delays and cost.
+This repository contains a full analytical and simulation-based study of a multi-stage hospital service process.  
+Using **Linear Programming**, **Queueing Theory**, and **Discrete-Time Event Simulation**, the project models patient flow, evaluates system performance, and identifies optimal resource allocation to minimize delays and operational cost.
 
+The experiments include both an **Emergency Scenario** and a **Hospital Scenario (before and after optimization)**.
 
-**Project Objectives**
+--------------------------------------------------------------------------------
 
-Build a mathematical model of a multi-stage service process
+## 🎯 Project Objectives
 
-Use linear programming to optimize resource usage
+- Build a mathematical representation of a multi-step hospital service process  
+- Use **Linear Programming (LP)** to optimize staffing and resource allocation  
+- Simulate patient flow using **Discrete-Time Event Simulation**  
+- Compute performance metrics:
+  - Average waiting time  
+  - Queue length  
+  - Utilization  
+  - Throughput  
+- Detect bottlenecks (e.g., recovery vs operating room)  
+- Compare **before vs after optimization** results  
 
-Apply discrete-time event simulation to validate analytical results
+--------------------------------------------------------------------------------
 
-Estimate:
+## 🏥 System Description
 
-Waiting times
+The model represents a multi-stage patient flow including:
 
-Queue lengths
+1. **Registration / Triage**  
+2. **Pre-operative preparation**  
+3. **Surgery / Operating room**  
+4. **Recovery ward**  
+5. **Final discharge check**
 
-Utilization
+Each stage is modeled as an **M/M/s queue**, where:
+- Arrival rates and service rates are exponential  
+- Staffing levels (s) are decision variables  
+- LP optimization minimizes cost subject to performance constraints  
 
-Throughput
+--------------------------------------------------------------------------------
 
-Identify system bottlenecks
+## 📊 Methods Used
 
-Find the minimum-cost resource configuration meeting performance requirements
+### **1. Linear Programming**
+Used to determine the optimal number of:
+- Nurses  
+- Doctors  
+- Operating rooms  
+- Recovery beds  
 
-**System Description**
+Constraints include:
+- Maximum allowed waiting time  
+- Minimum throughput  
+- Total cost budget  
 
-The process includes consecutive stages (as described in the report):
+### **2. Queueing Theory (M/M/s Model)**
+The scripts compute:
+- Utilization  
+- Probability of delay  
+- Expected waiting time (Wq)  
+- Expected system time (W)  
+- Expected queue length (Lq)  
 
-Registration
+### **3. Discrete-Time Event Simulation**
+Monte-Carlo simulation validates analytical results by generating:
+- Random patient arrivals  
+- Service times  
+- Queue evolution over time  
 
-Pre-operative preparation
+Simulations include:
+- **Emergency scenario**
+- **Hospital before optimization**
+- **Hospital after optimization**
 
-Surgery
+--------------------------------------------------------------------------------
 
-Recovery
+## 📈 Key Findings (Summary)
 
-Final check
+- Increasing OR (surgery) capacity dramatically reduces total patient waiting time  
+- Once OR is improved, **recovery becomes the next bottleneck**  
+- Optimized resource configuration balances cost vs throughput  
+- Simulation results match the analytical LP predictions closely  
 
-Each stage is modeled as an M/M/s queue with exponential arrival and service rates.
-Parameters and diagrams are taken from the simulation report (see PDF).
+Detailed results are available in **Optimization and Simulation Report.pdf**.
 
-**Methods Used**
+--------------------------------------------------------------------------------
 
-_Linear Programming_
-Used to compute the best resource assignment (nurses, doctors, OR number) under constraints:
+## 📁 Repository Structure
 
-Maximum waiting time
+Linear_Programming_Optimization_Project/
+|
+├── Optimization and Simulation Report.pdf       # Full project report
+├── Optimization and Simulation Report.docx      # Editable report
+│
+├── emergency_scenario_simulation.slx            # Emergency Simulink simulation
+├── Emergency_scenario_avg_flow_time_calculation.m
+│
+├── hospital_scenario_before_optimization_simulation.slx
+├── hospital_scenario_avg_flow_time_calculation.m
+│
+├── hospital_scenario_after_optimization_simulation.slx
+├── hospital_scenario_after_optimization_simulation.m
+│
+├── hospital_scenario_optimization_problem.m     # Linear programming model
+│
+└── README.md                                    # Documentation
 
-Minimum throughput
+--------------------------------------------------------------------------------
 
-Budget limits
+## 🛠 Tools Used
 
+- **MATLAB**
+- **Linear Programming (linprog)**
+- **Discrete-Time Event Simulation**
+- **Queueing Theory**
+- **Monte-Carlo methods**
 
-_Discrete-Time Event Simulation_
-Simulates thousands of random arrivals and services to validate the theoretical model.
-Monte-Carlo simulation confirms the LP results and system behavior.
+--------------------------------------------------------------------------------
 
-_Queueing Theory_
-Metrics such as service rate, utilization, and expected delay are computed from known M/M/s formulas (pages 3–6 of the report).
+## 👤 Author
 
+**Ali Zein Khalifeh**  
+Politecnico di Torino  
+Optimization & Simulation Project
 
-_Results Summary_
-According to the report analysis:
-
-Increasing OR capacity significantly reduces overall delay
-
-Recovery becomes the next bottleneck once OR is optimized
-
-The optimal configuration balances resource cost vs. throughput
-
-Simulation curves closely match analytical predictions
-
-
-📁 Repository Structure
-/Code               → MATLAB scripts for optimization & simulation
-/Report             → Project PDF and figures
-/Plots              → Generated performance graphs
-README.md
-
-🛠 Tools Used
-
-MATLAB
-
-Linear Programming solver
-
-Monte-Carlo Simulation
-
-Queueing Theory metrics
-
-Discrete-Time simulation
-
-👤 Author
-
-Ali Zein Khalifeh
+--------------------------------------------------------------------------------
